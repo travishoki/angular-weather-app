@@ -8,17 +8,17 @@ import { AppComponent } from './app.component';
 import { TvRatingFormComponent } from './tv-rating-form/tv-rating-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TvRatingFormComponent
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
+	declarations: [
+		AppComponent,
+		TvRatingFormComponent
+	],
+	imports: [
+		AppRoutingModule,
+		BrowserModule,
 	NgbModule,
-    ReactiveFormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	ReactiveFormsModule,
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
