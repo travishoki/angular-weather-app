@@ -3,12 +3,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { WeatherFormConstants } from './weather-form.component-constants';
 
+interface Weather {
+	description: string;
+	id: number;
+	icon: string;
+	main: string;
+}
+
+const createWeather = (id: number = 0, main: string = '', description: string = '', icon: string = '') : Weather => {
+	return {
+		description,
+		id,
+		icon,
+		main,
+	};
+};
+
 @Component({
 	selector: 'app-weather-form',
 	templateUrl: './weather-form.component.html',
 	styleUrls: ['./weather-form.component.scss']
 })
-
 export class WeatherFormComponent implements OnInit {
 
 	constructor() { }
@@ -20,7 +35,7 @@ export class WeatherFormComponent implements OnInit {
 
 	loading = false;
 
-	weather = null;
+	weather = createWeather();
 
 	form = new FormGroup({
 		city: new FormControl('', Validators.required),
@@ -52,7 +67,7 @@ export class WeatherFormComponent implements OnInit {
 			.catch((response) => {
 				this.errorMessage = response.message;
 				this.loading = false;
-				this.weather = null;
+				this.weather = createWeather();
 			});
 	}
 }
