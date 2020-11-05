@@ -16,6 +16,8 @@ export class TvRatingFormComponent implements OnInit {
 
 	weather = null;
 
+	errorMessage = null;
+
 	form = new FormGroup({
 		city: new FormControl('', Validators.required),
 	});
@@ -27,9 +29,20 @@ export class TvRatingFormComponent implements OnInit {
 		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
 		fetch(url)
-			.then((response) => response.json())
+			.then((response) => {
+				if (!response.ok) {
+			        throw new Error(response.statusText);
+			    } else {
+					return response.json();
+			    }
+			})
 			.then((data) => {
+				this.errorMessage = null;
 				this.weather = data.weather[0];
+			})
+			.catch((response) => {
+				this.errorMessage = response.message;
+				this.weather = null;
 			});
 	}
 }

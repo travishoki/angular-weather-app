@@ -19,6 +19,11 @@
 	>OK</button>
 </form>
 
+<p
+	*ngIf="errorMessage"
+	class="error-message"
+>{{errorMessage}}<br />Please try searching for a different city.</p>
+
 <div
 	*ngIf="weather"
 	class="forcast"
