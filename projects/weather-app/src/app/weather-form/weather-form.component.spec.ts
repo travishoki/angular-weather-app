@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TvRatingFormComponent } from './tv-rating-form.component';
+import { WeatherFormComponent } from './weather-form.component';
 
-describe('TvRatingFormComponent', () => {
-	let component: TvRatingFormComponent;
-	let fixture: ComponentFixture<TvRatingFormComponent>;
+describe('WeatherFormComponent', () => {
+	let component: WeatherFormComponent;
+	let fixture: ComponentFixture<WeatherFormComponent>;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [ TvRatingFormComponent ]
+			declarations: [ WeatherFormComponent ]
 		})
 		.compileComponents();
 	});
 
 	beforeEach(() => {
-		fixture = TestBed.createComponent(TvRatingFormComponent);
+		fixture = TestBed.createComponent(WeatherFormComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

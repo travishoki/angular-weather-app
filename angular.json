@@ -3,32 +3,32 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tv-show-rating": {
+    "weather-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "projects/tv-show-rating",
-      "sourceRoot": "projects/tv-show-rating/src",
+      "root": "projects/weather-app",
+      "sourceRoot": "projects/weather-app/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tv-show-rating",
-            "index": "projects/tv-show-rating/src/index.html",
-            "main": "projects/tv-show-rating/src/main.ts",
-            "polyfills": "projects/tv-show-rating/src/polyfills.ts",
-            "tsConfig": "projects/tv-show-rating/tsconfig.app.json",
+            "outputPath": "dist/weather-app",
+            "index": "projects/weather-app/src/index.html",
+            "main": "projects/weather-app/src/main.ts",
+            "polyfills": "projects/weather-app/src/polyfills.ts",
+            "tsConfig": "projects/weather-app/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/tv-show-rating/src/favicon.ico",
-              "projects/tv-show-rating/src/assets"
+              "projects/weather-app/src/favicon.ico",
+              "projects/weather-app/src/assets"
             ],
             "styles": [
-              "projects/tv-show-rating/src/styles.scss"
+              "projects/weather-app/src/styles.scss"
             ],
             "scripts": []
           },
@@ -36,8 +36,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/tv-show-rating/src/environments/environment.ts",
-                  "with": "projects/tv-show-rating/src/environments/environment.prod.ts"
+                  "replace": "projects/weather-app/src/environments/environment.ts",
+                  "with": "projects/weather-app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -66,33 +66,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "tv-show-rating:build"
+            "browserTarget": "weather-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "tv-show-rating:build:production"
+              "browserTarget": "weather-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tv-show-rating:build"
+            "browserTarget": "weather-app:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/tv-show-rating/src/test.ts",
-            "polyfills": "projects/tv-show-rating/src/polyfills.ts",
-            "tsConfig": "projects/tv-show-rating/tsconfig.spec.json",
-            "karmaConfig": "projects/tv-show-rating/karma.conf.js",
+            "main": "projects/weather-app/src/test.ts",
+            "polyfills": "projects/weather-app/src/polyfills.ts",
+            "tsConfig": "projects/weather-app/tsconfig.spec.json",
+            "karmaConfig": "projects/weather-app/karma.conf.js",
             "assets": [
-              "projects/tv-show-rating/src/favicon.ico",
-              "projects/tv-show-rating/src/assets"
+              "projects/weather-app/src/favicon.ico",
+              "projects/weather-app/src/assets"
             ],
             "styles": [
-              "projects/tv-show-rating/src/styles.scss"
+              "projects/weather-app/src/styles.scss"
             ],
             "scripts": []
           }
@@ -101,9 +101,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/tv-show-rating/tsconfig.app.json",
-              "projects/tv-show-rating/tsconfig.spec.json",
-              "projects/tv-show-rating/e2e/tsconfig.json"
+              "projects/weather-app/tsconfig.app.json",
+              "projects/weather-app/tsconfig.spec.json",
+              "projects/weather-app/e2e/tsconfig.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -113,16 +113,16 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/tv-show-rating/e2e/protractor.conf.js",
-            "devServerTarget": "tv-show-rating:serve"
+            "protractorConfig": "projects/weather-app/e2e/protractor.conf.js",
+            "devServerTarget": "weather-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "tv-show-rating:serve:production"
+              "devServerTarget": "weather-app:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "tv-show-rating"
+  "defaultProject": "weather-app"
 }

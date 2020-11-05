@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-	selector: 'app-tv-rating-form',
-	templateUrl: './tv-rating-form.component.html',
-	styleUrls: ['./tv-rating-form.component.scss']
+	selector: 'app-weather-form',
+	templateUrl: './weather-form.component.html',
+	styleUrls: ['./weather-form.component.scss']
 })
 
-export class TvRatingFormComponent implements OnInit {
+export class WeatherFormComponent implements OnInit {
 
 	constructor() { }
 
