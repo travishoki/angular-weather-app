@@ -13,19 +13,22 @@ form {
 		margin: 0;
 	}
 
-	input {
+	input,
+	select {
 		margin: 0 20px;
 	}
 
 	button,
 	input,
-	label {
+	label,
+	select {
 		height: $inputHeight;
 		line-height: $inputHeight;
 	}
 
 	button,
-	input {
+	input,
+	select {
 		padding: 0 20px;
 	}
 }

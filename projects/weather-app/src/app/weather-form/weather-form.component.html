@@ -13,6 +13,16 @@
 		/>
 	</div>
 
+	<div class="form-group">
+		<label class="control-label">State:</label>
+		<select
+			class="form-control"
+			formControlName="state"
+		>
+			<option *ngFor="let state of statesList">{{state}}</option>
+		</select>
+	</div>
+
 	<button
 		[disabled]="form.invalid || form.disabled"
 		class="btn btn-primary"
