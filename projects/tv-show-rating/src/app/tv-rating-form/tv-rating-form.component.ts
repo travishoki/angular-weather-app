@@ -14,20 +14,21 @@ export class TvRatingFormComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
-	tvShows = [
-		{ name: 'Better call Saul!' },
-		{ name: 'Breaking Bad' },
-		{ name: 'Lost' },
-		{ name: 'Mad men' }
-	];
-
 	form = new FormGroup({
-		tvShow: new FormControl('', Validators.required),
-		rating: new FormControl('', Validators.required),
+		city: new FormControl('', Validators.required),
 	});
 
 	submit() {
-		alert(JSON.stringify(this.form.value));
+		const { city } = this.form.value;
+
 		this.form.reset();
+
+		const apiKey = 'c574c5835383440bcc0d8af84b4736cf';
+		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+		fetch(url)
+			.then((response) => response.json())
+			.then((data) => {
+			});
 	}
 }
