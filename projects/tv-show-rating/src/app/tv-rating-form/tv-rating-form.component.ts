@@ -14,6 +14,8 @@ export class TvRatingFormComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
+	weather = null;
+
 	form = new FormGroup({
 		city: new FormControl('', Validators.required),
 	});
@@ -29,6 +31,7 @@ export class TvRatingFormComponent implements OnInit {
 		fetch(url)
 			.then((response) => response.json())
 			.then((data) => {
+				this.weather = data.weather[0];
 			});
 	}
 }
