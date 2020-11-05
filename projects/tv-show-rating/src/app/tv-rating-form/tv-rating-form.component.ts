@@ -23,8 +23,6 @@ export class TvRatingFormComponent implements OnInit {
 	submit() {
 		const { city } = this.form.value;
 
-		this.form.reset();
-
 		const apiKey = 'c574c5835383440bcc0d8af84b4736cf';
 		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 

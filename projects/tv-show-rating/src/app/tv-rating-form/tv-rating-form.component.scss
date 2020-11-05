@@ -1,9 +1,45 @@
+// Colors
+$black: #000000;
+
+form {
+	$inputHeight: 40px;
+
+	margin-bottom: 100px;
+	display: flex;
+	justify-content: center;
+
+	.form-group {
+		display: flex;
+		margin: 0;
+	}
+
+	input {
+		margin: 0 20px;
+	}
+
+	button,
+	input,
+	label {
+		height: $inputHeight;
+		line-height: $inputHeight;
+	}
+
+	button,
+	input {
+		padding: 0 20px;
+	}
+}
+
 .forcast {
-	border: solid 1px #000000;
-	padding: 20px;
-	border-radius: 10px;
+	img {
+		display: block;
+		margin: 0 auto;
+	}
 
 	p {
+		font-size: 20px;
+		font-weight: bold;
 		text-transform: capitalize;
+		text-align: center;
 	}
 }
