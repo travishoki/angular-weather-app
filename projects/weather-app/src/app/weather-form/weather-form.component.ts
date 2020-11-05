@@ -14,9 +14,11 @@ export class WeatherFormComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
-	weather = null;
-
 	errorMessage = null;
+
+	loading = false;
+
+	weather = null;
 
 	form = new FormGroup({
 		city: new FormControl('', Validators.required),
@@ -24,9 +26,10 @@ export class WeatherFormComponent implements OnInit {
 
 	submit() {
 		const { city } = this.form.value;
-
 		const apiKey = 'c574c5835383440bcc0d8af84b4736cf';
 		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+		this.loading = true;
 
 		fetch(url)
 			.then((response) => {
@@ -38,10 +41,12 @@ export class WeatherFormComponent implements OnInit {
 			})
 			.then((data) => {
 				this.errorMessage = null;
+				this.loading = false;
 				this.weather = data.weather[0];
 			})
 			.catch((response) => {
 				this.errorMessage = response.message;
+				this.loading = false;
 				this.weather = null;
 			});
 	}

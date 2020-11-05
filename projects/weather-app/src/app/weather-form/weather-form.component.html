@@ -19,18 +19,29 @@
 	>OK</button>
 </form>
 
-<p
-	*ngIf="errorMessage"
-	class="error-message"
->{{errorMessage}}<br />Please try searching for a different city.</p>
+<div
+	*ngIf="loading"
+	class="loader"
+>
+	LOADING...
+</div>
 
 <div
-	*ngIf="weather"
-	class="forcast"
+	*ngIf="!loading"
 >
-	<img
-		alt="{{weather.description}}"
-		src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png"
-	/>
-	<p>{{weather.description}}</p>
+	<p
+		*ngIf="errorMessage"
+		class="error-message"
+	>{{errorMessage}}<br />Please try searching for a different city.</p>
+
+	<div
+		*ngIf="weather"
+		class="forcast"
+	>
+		<img
+			alt="{{weather.description}}"
+			src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png"
+		/>
+		<p>{{weather.description}}</p>
+	</div>
 </div>
