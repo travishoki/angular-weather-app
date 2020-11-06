@@ -19,8 +19,8 @@ const createWeather = (id: number = 0, main: string = '', description: string = 
 	};
 };
 
-const getRandomInt = (max) => {
-  return Math.floor(Math.random() * Math.floor(max));
+const getRandomInt = (max: number = 0) => {
+	return Math.floor(Math.random() * Math.floor(max));
 }
 
 @Component({
@@ -37,7 +37,7 @@ export class WeatherFormComponent implements OnInit {
 
 	errorMessage = null;
 
-	gif = null;
+	gif = '';
 
 	loading = false;
 
@@ -50,7 +50,7 @@ export class WeatherFormComponent implements OnInit {
 		state: new FormControl('', Validators.required),
 	});
 
-	getGif = (str) => {
+	getGif(str: string) {
 		const gifApiKey = '71G6e4FSA3npSbsGnYdH7tvDeExKVgsb';
 		const offset = getRandomInt(100);
 		const gifUrl = `https://api.giphy.com/v1/gifs/search?api_key=${gifApiKey}&q=${str}&limit=1&offset=${offset}&rating=g&lang=en`
@@ -58,8 +58,6 @@ export class WeatherFormComponent implements OnInit {
 		fetch(gifUrl)
 			.then((response) => response.json())
 			.then((data) => {
-				console.log('data:');console.dir(data);
-
 				this.gif = data.data[0].embed_url;
 			})
 	}
