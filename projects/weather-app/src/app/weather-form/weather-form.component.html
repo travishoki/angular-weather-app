@@ -31,14 +31,14 @@
 </form>
 
 <div
-	*ngIf="loading"
+	*ngIf="loadingWeather"
 	class="loader"
 >
 	LOADING...
 </div>
 
 <div
-	*ngIf="!loading"
+	*ngIf="!loadingWeather"
 >
 	<p
 		*ngIf="errorMessage"
@@ -57,7 +57,7 @@
 	</div>
 
 	<iframe
-		*ngIf="gif"
+		*ngIf="gif && !loadingGif"
 		[src]="gif | safe"
 		width="480"
 		height="270"

@@ -39,7 +39,9 @@ export class WeatherFormComponent implements OnInit {
 
 	gif = '';
 
-	loading = false;
+	loadingGif = true;
+
+	loadingWeather = false;
 
 	statesList = WeatherFormConstants.statesList;
 
@@ -52,13 +54,16 @@ export class WeatherFormComponent implements OnInit {
 
 	getGif(str: string) {
 		const gifApiKey = '71G6e4FSA3npSbsGnYdH7tvDeExKVgsb';
-		const offset = getRandomInt(100);
+		const offset = getRandomInt(25);
 		const gifUrl = `https://api.giphy.com/v1/gifs/search?api_key=${gifApiKey}&q=${str}&limit=1&offset=${offset}&rating=g&lang=en`
+
+		this.loadingGif = true;
 
 		fetch(gifUrl)
 			.then((response) => response.json())
 			.then((data) => {
 				this.gif = data.data[0].embed_url;
+				this.loadingGif = false;
 			})
 	}
 
@@ -67,7 +72,7 @@ export class WeatherFormComponent implements OnInit {
 		const weatherApiKey = 'c574c5835383440bcc0d8af84b4736cf';
 		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${state}&appid=${weatherApiKey}`;
 
-		this.loading = true;
+		this.loadingWeather = true;
 
 		fetch(url)
 			.then((response) => {
@@ -79,13 +84,13 @@ export class WeatherFormComponent implements OnInit {
 			})
 			.then((data) => {
 				this.errorMessage = null;
-				this.loading = false;
+				this.loadingWeather = false;
 				this.weather = data.weather[0];
 				this.getGif(this.weather.description);
 			})
 			.catch((response) => {
 				this.errorMessage = response.message;
-				this.loading = false;
+				this.loadingWeather = false;
 				this.weather = createWeather();
 				this.getGif('error');
 			});
