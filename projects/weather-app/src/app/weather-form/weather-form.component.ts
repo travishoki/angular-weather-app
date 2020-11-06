@@ -19,6 +19,10 @@ const createWeather = (id: number = 0, main: string = '', description: string = 
 	};
 };
 
+const getRandomInt = (max) => {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 @Component({
 	selector: 'app-weather-form',
 	templateUrl: './weather-form.component.html',
@@ -33,7 +37,11 @@ export class WeatherFormComponent implements OnInit {
 
 	errorMessage = null;
 
+	gif = null;
+
 	loading = false;
+
+	statesList = WeatherFormConstants.statesList;
 
 	weather = createWeather();
 
@@ -42,12 +50,24 @@ export class WeatherFormComponent implements OnInit {
 		state: new FormControl('', Validators.required),
 	});
 
-	statesList = WeatherFormConstants.statesList;
+	getGif = (str) => {
+		const gifApiKey = '71G6e4FSA3npSbsGnYdH7tvDeExKVgsb';
+		const offset = getRandomInt(100);
+		const gifUrl = `https://api.giphy.com/v1/gifs/search?api_key=${gifApiKey}&q=${str}&limit=1&offset=${offset}&rating=g&lang=en`
+
+		fetch(gifUrl)
+			.then((response) => response.json())
+			.then((data) => {
+				console.log('data:');console.dir(data);
+
+				this.gif = data.data[0].embed_url;
+			})
+	}
 
 	submit() {
 		const { city, state } = this.form.value;
-		const apiKey = 'c574c5835383440bcc0d8af84b4736cf';
-		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${state}&appid=${apiKey}`;
+		const weatherApiKey = 'c574c5835383440bcc0d8af84b4736cf';
+		const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${state}&appid=${weatherApiKey}`;
 
 		this.loading = true;
 
@@ -63,11 +83,13 @@ export class WeatherFormComponent implements OnInit {
 				this.errorMessage = null;
 				this.loading = false;
 				this.weather = data.weather[0];
+				this.getGif(this.weather.description);
 			})
 			.catch((response) => {
 				this.errorMessage = response.message;
 				this.loading = false;
 				this.weather = createWeather();
+				this.getGif('error');
 			});
 	}
 }

@@ -46,6 +46,8 @@ form {
 }
 
 .forcast {
+	margin-bottom: 40px;
+
 	img {
 		display: block;
 		margin: 0 auto;
@@ -57,4 +59,9 @@ form {
 		text-transform: capitalize;
 		text-align: center;
 	}
+}
+
+iframe {
+	display: block;
+    margin: 0 auto;
 }

@@ -8,10 +8,25 @@ import { AppComponent } from './app.component';
 import { WeatherFormComponent } from './weather-form/weather-form.component';
 import { HeaderComponent } from './header/header.component';
 
+import { Pipe, PipeTransform } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+
+@Pipe({
+  name: 'safe'
+})
+export class SafePipe implements PipeTransform {
+	constructor(private sanitizer: DomSanitizer) { }
+
+	transform(gif) {
+		return this.sanitizer.bypassSecurityTrustResourceUrl(gif);
+	}
+}
+
 @NgModule({
 	declarations: [
 		AppComponent,
 		HeaderComponent,
+		SafePipe,
 		WeatherFormComponent,
 	],
 	imports: [

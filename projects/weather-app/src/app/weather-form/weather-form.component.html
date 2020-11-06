@@ -55,4 +55,14 @@
 		/>
 		<p>{{weather.description}}</p>
 	</div>
+
+	<iframe
+		*ngIf="gif"
+		[src]="gif | safe"
+		width="480"
+		height="270"
+		frameBorder="0"
+		class="giphy-embed"
+		allowFullScreen
+	></iframe>
 </div>
