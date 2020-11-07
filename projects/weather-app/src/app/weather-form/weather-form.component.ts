@@ -19,7 +19,7 @@ const createWeather = (id: number = 0, main: string = '', description: string = 
 	};
 };
 
-const getRandomInt = (max: number = 0) => {
+export const getRandomInt = (max: number = 0) => {
 	return Math.floor(Math.random() * Math.floor(max));
 }
 
