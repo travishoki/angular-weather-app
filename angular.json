@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/jest:run",
           "options": {
             "outputPath": "dist/weather-app",
             "index": "projects/weather-app/src/index.html",
@@ -81,7 +81,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
             "main": "projects/weather-app/src/test.ts",
             "polyfills": "projects/weather-app/src/polyfills.ts",
