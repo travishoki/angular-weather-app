@@ -19,7 +19,7 @@
 			class="form-control"
 			formControlName="state"
 		>
-			<option [ngValue]="undefined" hidden>Select a state</option>
+			<option ngValue="undefined" hidden>Select a state</option>
 			<option *ngFor="let state of statesList">{{state}}</option>
 		</select>
 	</div>
