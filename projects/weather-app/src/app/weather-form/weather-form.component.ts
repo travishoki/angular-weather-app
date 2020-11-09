@@ -10,14 +10,12 @@ interface Weather {
 	main: string;
 }
 
-const createWeather = (id: number = 0, main: string = '', description: string = '', icon: string = '') : Weather => {
-	return {
-		description,
-		id,
-		icon,
-		main,
-	};
-};
+export const createWeather = (id: number = 0, main: string = '', description: string = '', icon: string = '') : Weather => ({
+	description,
+	id,
+	icon,
+	main,
+});
 
 export const getRandomInt = (max: number = 0) => {
 	return Math.floor(Math.random() * Math.floor(max));
